@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  <title>Form to fill details</title>
+  <style>
+  #width {
+    width: 10px;
+  }
+#out{
+  margin: 10px;
+  border: 3px solid grey;
+  text-align: center;
+}
+    #details{
+      font-size: 20px;
+      padding: 10px 10px 10px 10px;
+      margin: 25px;
+    }
+    #id{
+      width: 50%;
+      margin: auto;
+      margin: 40px;
+    }
+    .title {
+      padding: 30px;
+      background-color: rgb(250,230,200);
+      color: #400BF;
+    }
+    .kkk{
+      margin: auto;
+      width: 30%;
+      border: 2px solid;
+      border-radius: 8px;
+      padding: 25px;
+      border-color: rgb(189,200,26);
+      background-image: url(back.jpg);
+      opacity: 0.9;
+    }
+    .ques {
+      font-size: 30px;
+    }
+    #head {
+      width: 30%;
+      margin: auto;
+    }
+    #button {
+    background-color: rgb(100,100,100);
+    text-shadow: 49
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.name {
+  color: yellow;
+}
+.yo {
+  background-image: url(background.jpeg);
+  padding: 160px;
+  background position: center;
+}
+  </style>
+  </head>
+  <body>
+    <div>
+<div class="title">
+    <h1 id="head">Event Participating Form</h1>
+    <img id="ohnoes" src="https://www.kasandbox.org/programming-images/avatars/marcimus-red.png" width="5px"alt="Start image">
+  </div>
+    <div class="yo">
+    <br>
+    <div class="kkk">
+    <label class="ques">What's your name</label>
+    <br>
+    <br>
+    <input id="name" class="ques" type="text" name="" value="">
+    <br>
+    <br>
+    <label class="ques">What event do you want to participate</label>
+    <br>
+    <br>
+    <select id="event"class="ques">
+      <option value="s">Select option</option>
+      <option value="Code Champ">Code Champ</option>
+      <option value="Code Hunt">Code Hunt</option>
+      <option value="Hour of Code">Hour of Code</option>
+    </select>
+    <br>
+    <br>
+    <button type="button" id="button">Click to complete details</button>
+  </div>
+</div>
+<div id="out">
+<h3>Registration details</h3>
+    <div id="details"></div>
+
+  </div>
+
+</div>
+    <script type="text/javascript">
+      var t = document.getElementById("button");
+      var ohnoes = document.getElementById("ohnoes");
+      ohnoes.style.width = "5px";
+      console.log(ohnoes);
+      var printDetails = function () {
+        var name = document.getElementById("name").value;
+        var eve=document.getElementById("event").value;
+        var details = document.getElementById("details");
+        if(name==="")
+        alert("Enter the name");
+        else if (eve==="s") {
+          alert("Enter valid option");
+        }
+        else {
+          details.innerHTML="Your name is "+name+" The event that you are Participating is "+eve+".<br> And last you are registered for the event<br> The user name is: "+name+"395 <br> The event information will be present at the college";
+        }
+
+}
+var startt = new Date().getTime();
+
+var makeitBigger = function () {
+  var curr = new Date().getTime();
+  var newwidth = (5+(((curr-startt)/1000)*30));
+  ohnoes.style.width=newwidth+"px";
+  if(newwidth<100)
+    window.requestAnimationFrame(makeitBigger);
+}
+makeitBigger();
+      t.addEventListener("click",printDetails);
+    </script>
+  </body>
+</html>
